@@ -14,7 +14,7 @@ public class CarDrive : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); // Make sure this is on the Car root!
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -23,7 +23,6 @@ public class CarDrive : MonoBehaviour
         float reverse = reverseInput.action.ReadValue<float>();
         float netThrottle = forward - reverse;
 
-        // Use THIS object's forward (the car)
         Vector3 move = transform.forward * netThrottle * speed;
         rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
 
